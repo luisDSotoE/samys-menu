@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-deep: #0A0A0A;
+  --color-bg-card: #121212;
+  --color-brand-orange: #FF6A00;
+  --color-brand-red: #9B1D00;
+  --color-brand-gray: #D9D9D9;
+  
+  --font-poppins: 'Poppins', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-bebas: 'Bebas Neue', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-poppins);
+    background-color: var(--color-bg-deep);
+    color: #FFFFFF;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Efecto Glassmorphic Global */
+  .glass-premium {
+    background: rgba(18, 18, 18, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 106, 0, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-navbar {
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 106, 0, 0.1);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #FF6A00;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9B1D00;
+  }
+}
+
+/* Animaciones de fuego difuminado en background */
+.fire-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,106,0,0.15) 0%, rgba(155,29,0,0) 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
