@@ -1,7 +1,7 @@
 import { FaWhatsapp, FaMapMarkerAlt } from 'react-icons/fa';
 import { TbMeat, TbGrill } from 'react-icons/tb';
 import { GiFrenchFries, GiHamburger } from 'react-icons/gi';
-import { Toaster, toast } from 'react-hot-toast'; // <-- Importamos las notificaciones
+import { Toaster, toast } from 'react-hot-toast'; 
 
 // Importamos el logo
 import logoSamy from './assets/Logo.png';
@@ -57,7 +57,6 @@ export default function App() {
     window.open(`https://wa.me/573169925697?text=${text}`, '_blank');
   };
 
-  // Función mágica para copiar el número de Nequi
   const handleNequiCopy = () => {
     navigator.clipboard.writeText('3128883855');
     toast.success('¡Número de Nequi copiado!', {
@@ -76,58 +75,53 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-black font-sans selection:bg-[#FF6A00] selection:text-white pb-12">
       
-      {/* Componente Toaster que muestra las alertas en pantalla */}
       <Toaster position="top-center" reverseOrder={false} />
 
-      {/* El Fondo de Hamburguesa Oscurecido */}
+      {/* Fondo de Hamburguesa */}
       <div 
-        className="fixed inset-0 z-0 bg-cover bg-center opacity-40 mix-blend-luminosity"
+        className="fixed inset-0 z-0 bg-cover bg-center opacity-85"
         style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=1920&auto=format&fit=crop")' }}
       />
-      <div className="fixed inset-0 z-0 bg-gradient-to-b from-[#1a0a00]/80 via-black/80 to-black/95" />
+      <div className="fixed inset-0 z-0 bg-gradient-to-b from-black/50 via-black/70 to-black/90" /> 
 
       {/* Contenido Real */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-4 md:pt-6">
         
-        {/* HEADER: Logo y Contacto */}
+        {/* HEADER */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 md:gap-8">
           
-          {/* Logo Real Importado */}
           <div className="w-[300px] sm:w-[350px] md:w-[500px] flex items-center justify-center shrink-0 -my-12 md:-my-20">
             <img 
               src={logoSamy} 
               alt="Samy's Restobar Logo" 
-              className="w-full h-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] relative z-0"
+              className="w-full h-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] relative z-0"
             />
           </div>
 
-          {/* Info de Contacto Superior */}
-          <div className="relative z-10 flex flex-col gap-4 md:gap-6 text-white text-center md:text-right w-full md:w-auto items-center md:items-end">
+          <div className="relative z-10 flex flex-col gap-4 md:gap-6 text-white text-center md:text-right w-full md:w-auto items-center md:items-end drop-shadow-md">
             
-            {/* Botón interactivo de Nequi */}
             <div 
               onClick={handleNequiCopy}
-              className="flex items-center gap-4 cursor-pointer hover:scale-105 active:scale-95 transition-transform bg-white/5 px-4 py-2 rounded-xl border border-white/10 hover:border-[#4A148C]/50"
+              className="flex items-center gap-4 cursor-pointer hover:scale-105 active:scale-95 transition-transform bg-black/60 px-4 py-2 rounded-xl border border-white/10 hover:border-[#4A148C]/50"
               title="Haz clic para copiar el número"
             >
               <div className="w-12 h-12 bg-white text-[#4A148C] font-black text-3xl flex items-center justify-center rounded-md shrink-0 shadow-[0_0_15px_rgba(74,20,140,0.4)]">
                 N
               </div>
               <div className="flex flex-col items-start md:items-end">
-                <span className="text-sm text-gray-400 font-medium">TOCA PARA COPIAR</span>
+                <span className="text-sm text-gray-200 font-medium">TOCA PARA COPIAR</span>
                 <span className="text-3xl tracking-widest font-semibold">3128883855</span>
               </div>
             </div>
 
-            {/* WhatsApp */}
             <div 
-              className="flex items-center gap-4 hover:text-[#FF6A00] transition-colors cursor-pointer hover:scale-105 active:scale-95 px-4 py-2" 
+              className="flex items-center gap-4 hover:text-[#FF6A00] transition-colors cursor-pointer hover:scale-105 active:scale-95 bg-black/60 px-4 py-2 rounded-xl border border-white/10 hover:border-[#FF6A00]/50" 
               onClick={() => window.open('https://wa.me/573169925697', '_blank')}
             >
-              <FaWhatsapp size={48} className="shrink-0" />
+              <FaWhatsapp size={48} className="shrink-0 text-white" />
               <div className="flex flex-col items-start md:items-end">
-                <span className="text-xl italic text-gray-300">DOMICILIOS</span>
-                <span className="text-3xl tracking-widest font-semibold">3169925697</span>
+                <span className="text-xl italic text-gray-100">DOMICILIOS</span>
+                <span className="text-3xl tracking-widest font-semibold text-white">3169925697</span>
               </div>
             </div>
           </div>
@@ -136,10 +130,10 @@ export default function App() {
         {/* MENU GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 relative z-10 mt-6">
           {menuData.map((category, idx) => (
-            <div key={idx} className="flex flex-col">
+            <div key={idx} className="flex flex-col bg-black/60 p-6 rounded-2xl border border-white/10 shadow-xl backdrop-blur-sm">
               <div className="mb-6 flex flex-col items-start">
                 {category.icon}
-                <h2 className="text-white text-5xl font-bold tracking-wider uppercase">
+                <h2 className="text-white text-4xl font-bold tracking-wider uppercase drop-shadow-md">
                   {category.category}
                 </h2>
               </div>
@@ -151,16 +145,18 @@ export default function App() {
                     onClick={() => handleOrder(item.name)}
                     className="group cursor-pointer"
                   >
-                    <div className="flex items-baseline w-full">
-                      <h3 className="text-white font-bold text-lg whitespace-nowrap group-hover:text-[#FF6A00] transition-colors">
+                    {/* Estructura mejorada: Ambos textos usan text-base (más pequeños y uniformes) */}
+                    <div className="flex items-end justify-between w-full mb-1 gap-2">
+                      <h3 className="text-white font-bold text-base leading-tight group-hover:text-[#FF6A00] transition-colors drop-shadow-sm">
                         {item.name}
                       </h3>
-                      <div className="flex-grow border-b-[3px] border-dotted border-white/40 mx-3 relative top-[-6px]"></div>
-                      <span className="text-white font-bold text-lg whitespace-nowrap">
+                      <div className="flex-grow border-b-[3px] border-dotted border-white/40 mb-[5px]"></div>
+                      <span className="text-white font-bold text-base whitespace-nowrap drop-shadow-sm shrink-0">
                         {item.price}
                       </span>
                     </div>
-                    <p className="text-gray-300 text-sm mt-1 pr-4 leading-snug font-light group-hover:text-gray-100 transition-colors">
+                    
+                    <p className="text-gray-200 text-sm mt-1 pr-4 leading-snug font-normal group-hover:text-white transition-colors">
                       {item.desc}
                     </p>
                   </div>
@@ -170,16 +166,16 @@ export default function App() {
           ))}
         </div>
 
-        {/* FOOTER EXACTO AL FLYER */}
-        <div className="mt-20 pt-10 flex flex-col items-center text-center">
-          <div className="flex items-center gap-3 bg-black/60 px-6 py-3 rounded-full border border-white/10 mb-10">
+        {/* FOOTER */}
+        <div className="mt-20 pt-10 flex flex-col items-center text-center relative z-10">
+          <div className="flex items-center gap-3 bg-black/80 px-6 py-3 rounded-full border border-white/10 mb-10 shadow-lg">
             <FaMapMarkerAlt className="text-red-500 shrink-0" size={24} />
             <span className="text-white text-xl font-medium tracking-wide">
               Dirección: Calle 9 #10 Esquina
             </span>
           </div>
 
-          <h1 className="text-[#FF6A00] text-3xl md:text-5xl font-bold tracking-wider drop-shadow-lg uppercase flex items-center gap-4">
+          <h1 className="text-[#FF6A00] text-3xl md:text-5xl font-bold tracking-wider drop-shadow-2xl uppercase flex items-center gap-4 bg-black/70 px-8 py-4 rounded-3xl border border-[#FF6A00]/20">
             NO TE OLVIDES DE TU BEBIDA FRIA
             <span className="text-4xl">🥤</span>
           </h1>

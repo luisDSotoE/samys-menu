@@ -15,14 +15,6 @@ export default defineConfig({
   build: {
     sourcemap: false,
     chunkSizeWarningLimit: 1000,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'framer-motion', 'zustand'],
-          ui: ['@mui/material', '@emotion/react', '@emotion/styled', 'lucide-react', 'react-icons'],
-          swiper: ['swiper'],
-        } as Record<string, string[]>,
-      },
-    },
+    // Eliminamos rollupOptions y manualChunks para que Vite maneje todo automáticamente sin errores
   },
 });
